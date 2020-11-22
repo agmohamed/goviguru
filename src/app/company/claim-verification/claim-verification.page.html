@@ -1,0 +1,34 @@
+</ion-toolbar>
+</ion-header>
+
+<ion-content *ngFor="let d of data">
+
+  <ion-item >
+    <ion-label ><strong>NIC :</strong>{{d.NIC}}</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label ><strong>Land Number :</strong>{{d.land_number}}</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label><strong>Start Date :</strong>{{d.start_date| date: 'yyyy/MM/dd'}}</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label ><strong>End Date :</strong>{{d.end_date| date: 'yyyy/MM/dd'}}</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label ><strong>Crop:</strong>{{d.Crop}}</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item >
+  <ion-label>Verification</ion-label>
+  <ion-select  [(ngModel)]="verify">
+      <ion-select-option>True</ion-select-option>
+      <ion-select-option>False</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-button (click)="onClick()">confirm</ion-button>
+</ion-content>

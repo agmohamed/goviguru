@@ -1,0 +1,10 @@
+{
+  "name": "govi",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}
