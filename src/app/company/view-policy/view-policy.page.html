@@ -1,29 +1,41 @@
 <ion-header>
+  
   <ion-toolbar class="new-background-color" >
     <ion-buttons slot="start">
       <ion-back-button defaultHref="company"></ion-back-button>
     </ion-buttons>
-    <ion-title>view Policy</ion-title>
+    <ion-title>View Policy</ion-title>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
-<ion-card *ngFor="let policyCrop of policyCrops">
+  <ion-card *ngFor="let policy of policies"
+    [class.selectedPolicy]="policy === selectedPolicy"
+>
   <ion-card-content>
+    
     <ion-item >
-      <ion-label ><strong>Crop Id :</strong>{{policyCrop.crop_id}}</ion-label>
+      <ion-label><strong>Crop Id :</strong>{{policy.crop_id}}</ion-label>
     </ion-item>
+
     <ion-item >
-      <ion-label ><strong>Crop Name :</strong>{{policyCrop.crop_name}}</ion-label>
+      <ion-label ><strong>Crop Name :</strong>{{policy.crop_name}}</ion-label>
     </ion-item>
     
     <ion-item >
-      <ion-label ><strong>Claim Value For Acre :</strong>{{policyCrop.claim_value_for_Acre}}</ion-label>
+      <ion-label ><strong>Claim Value For Acre :</strong>{{policy.claim_value_for_Acre}}</ion-label>
     </ion-item>
+
     <ion-item >
       <ion-label ><strong>Rate :</strong>{{policyCrop.rate}}</ion-label>
     </ion-item>
-    <ion-button class="btncolor" (click)="update()">Update</ion-button>
+
+    <ion-item>
+      <ion-button class="btncolor" (click)="edit(policy)">Edit</ion-button>
+      <ion-button class="btncolor" (click)="remove(policy)">Delete</ion-button>
+    </ion-item>
+
   </ion-card-content>
 </ion-card>
 </ion-content>

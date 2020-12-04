@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar class="new-background-color" >
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="company"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Policy</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+ 
+    
+  <form [formGroup]="policyForm" class="horizontal" (ngSubmit)="onUpdate()" >
+  <ion-item>
+    <ion-label position="fixed" control-label for="crop_id">Crop Id</ion-label>
+    <ion-input type="text" id="crop_id"  class="form-control" readonly formControlName="crop_id" autocomplete="off" ></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="fixed" control-label for="crop_name">Crop Name</ion-label>
+    <ion-input type="text" id="crop_name" class="form-control" formControlName="crop_name"  autocomplete="off"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed" control-label for="claim_value_for_Acre">Claim Value For Acre</ion-label>
+    <ion-input type="text" id="claim_value_for_Acre" class="form-control" formControlName="claim_value_for_Acre" autocomplete="off"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed" control-label for="rate">Rate</ion-label>
+    <ion-input type="text" id="rate" formControlName="rate" class="form-control" autocomplete="off"></ion-input>
+  </ion-item>
+  
+    <ion-button type="submit"  [disabled]="!policyForm.valid"  >Add</ion-button>
+  
+</form>
+
+<ion-content>

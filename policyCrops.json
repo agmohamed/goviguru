@@ -1,0 +1,28 @@
+{
+  "policyCrop": [
+    {
+        "crop_id":1,
+        "crop_name":"Maize",
+        "claim_value_for_Acre":500000,
+        "rate":0.5
+    },
+    {
+        "crop_id":2,
+        "crop_name":"Potato",
+        "claim_value_for_Acre":540000,
+        "rate":0.56
+    },
+    {
+        "crop_id":3,
+        "crop_name":"Paddy",
+        "claim_value_for_Acre":700000,
+        "rate":0.23
+    },
+    {
+        "crop_id":4,
+        "crop_name":"Paddy",
+        "claim_value_for_Acre":700000,
+        "rate":0.23
+    }
+]
+}

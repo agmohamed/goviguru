@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { MycompanyService } from 'src/app/mycompany.service';
+import { Component, OnInit ,Input, NgZone} from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+
 import {HttpClient} from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import{AddPolicy} from '../add-policy/addPolicy';
+
+
 
 @Component({
   selector: 'app-add-policy',
@@ -12,39 +15,47 @@ import{AddPolicy} from '../add-policy/addPolicy';
 export class AddPolicyPage implements OnInit {
   
  
-  postedPolicy:AddPolicy;
   
   
+  policyForm:FormGroup;
   
-  newPolicy= new AddPolicy();
-
-  constructor(private httpClient: HttpClient,private router:Router) { }
  
-  cRateKeyUp(newRate:number){
-    this.newPolicy.rate=newRate;
-  }
-  cNameKeyUp(newName:string){
-    this.newPolicy.crop_name=newName;
-  }
-  cIdKeyUp(newId:number){
-    this.newPolicy.crop_id=newId;
-  }
-  cValueKeyUp(newValue:number){
-    this.newPolicy.claim_value_for_Acre=newValue;
-  }
 
-  addNewPolicy(addpolicy:AddPolicy):Observable<AddPolicy>{
-      //const url='http://localhost:8100/policyCrop';
-      const url='/assets/data/policy.json';
-      return this.httpClient.post<AddPolicy>(url,addpolicy);
-  }
+  constructor(private httpClient: HttpClient,
+    private router:Router,
+    private ngZone:NgZone,
+    public myCompanyService:MycompanyService,
+    private fb:FormBuilder) { }
+ 
+ 
 
+  
   ngOnInit() {
-   
+    
+   this.addnewPolicy();
+      
 
-    this.addNewPolicy(this.newPolicy).subscribe(data=>{
-      this.postedPolicy=data;
-    })
+  }
+   addnewPolicy(){
+    this.policyForm= new FormGroup({
+      'crop_id':new FormControl(null,Validators.required),
+      'crop_name':new FormControl(null,Validators.required),
+      'claim_value_for_Acre':new FormControl(null,Validators.required),
+      'rate':new FormControl(null,Validators.required)
+    });
+
+   }
+  
+  onSubmit(){
+    this.myCompanyService.createPolicy(this.policyForm.value)
+    .subscribe(
+      (res)=>{
+        console.log(this.policyForm.value);
+        this.ngZone.run(()=>this.router
+        .navigateByUrl('./company/view-policy'));
+      }
+    );
+    
   }
 
   back(){

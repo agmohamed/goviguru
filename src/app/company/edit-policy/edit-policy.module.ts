@@ -1,27 +1,21 @@
-import { CompanyPage } from './company.page';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
 
-import { CompanyPageRoutingModule } from './company-routing.module';
+import { EditPolicyPageRoutingModule } from './edit-policy-routing.module';
 
-
-
+import { EditPolicyPage } from './edit-policy.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CompanyPageRoutingModule,
+    EditPolicyPageRoutingModule,
     HttpClientModule
   ],
-  declarations: [
-    CompanyPage,
-   
-  ],
- 
+  declarations: [EditPolicyPage]
 })
-export class CompanyPageModule {}
+export class EditPolicyPageModule {}

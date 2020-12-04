@@ -35,6 +35,10 @@ const routes: Routes = [
   {
     path: 'policy-verification',
     loadChildren: () => import('./policy-verification/policy-verification.module').then( m => m.PolicyVerificationPageModule)
+  },
+  {
+    path: 'edit-policy',
+    loadChildren: () => import('./edit-policy/edit-policy.module').then( m => m.EditPolicyPageModule)
   }
 ];
 

@@ -6,27 +6,35 @@
     <ion-title><strong>Add New  Policy</strong></ion-title>
   </ion-toolbar>
 </ion-header>
+<br><br>
 <ion-content>
-  <ion-card>
-    <ion-card-content>
+  
+ 
+    
+      <form [formGroup]="policyForm"  >
       <ion-item>
-        <ion-label>Crop Name</ion-label>
-        <ion-input type="text" (keyUp)="cNamKeyUp(cname.value)" #cname ></ion-input>
+        <ion-label position="fixed">Crop Id</ion-label>
+        <ion-input type="text" id="crop_id" class="form-control" formControlName="crop_id" autocomplete="off" ></ion-input>
       </ion-item>
+      
       <ion-item>
-        <ion-label>Crop id</ion-label>
-        <ion-input type="text" (keyUp)="cIdKeyUp(cid.value)" #cid></ion-input>
+        <ion-label position="fixed">Crop Name</ion-label>
+        <ion-input type="text" id="crop_name" class="form-control" formControlName="crop_name"  autocomplete="off"></ion-input>
       </ion-item>
+
       <ion-item>
-        <ion-label>Claim Value For Acre</ion-label>
-        <ion-input type="text" (keyUp)="cValueKeyUp(cvalue.value)" #cvalue ></ion-input>
+        <ion-label position="fixed">Claim Value For Acre</ion-label>
+        <ion-input type="text" id="claim_value_for_Acre" class="form-control" formControlName="claim_value_for_Acre" autocomplete="off"></ion-input>
       </ion-item>
+
       <ion-item>
-        <ion-label>Rate</ion-label>
-        <ion-input type="text" (keyUp)="cRateKeyUp(crate.value)" #crate ></ion-input>
+        <ion-label position="fixed">Rate</ion-label>
+        <ion-input type="text" id="rate" formControlName="rate" class="form-control" autocomplete="off"></ion-input>
       </ion-item>
-      <ion-button class="new-background-color" (click)="addNewPolicy()">Add</ion-button>
-    </ion-card-content>
-  </ion-card>
+      
+        <ion-button type="submit" (click)="onSubmit()" [disabled]="!policyForm.valid"  >Add</ion-button>
+      
+    </form>
+    
 <ion-content>
 
